@@ -21,13 +21,13 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintHorizontal_bias="0.507" />
     <TextView
-        android:layout_width="131dp"
-        android:layout_height="52dp"
+        android:layout_width="87dp"
+        android:layout_height="16dp"
         android:text="New Autore"
         android:id="@+id/textViewAutore"
         android:layout_marginLeft="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="45dp"
         app:layout_constraintBottom_toTopOf="@+id/textViewCategoria" />
     <TextView
         android:layout_width="wrap_content"
@@ -40,7 +40,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="46dp"
         app:layout_constraintBottom_toTopOf="@+id/textViewMateriali"
-        app:layout_constraintHorizontal_bias="0.0" />
+        app:layout_constraintHorizontal_bias="0.522" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -20,7 +20,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="helloworld.smartmuseum.View_Data" android:label="Scheda Reperto">
+        <activity android:name="helloworld.smartmuseum.ViewData" android:label="Scheda Reperto">
 
         </activity>
     </application>
