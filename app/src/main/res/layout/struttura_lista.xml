@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="294dp"
+        android:layout_height="28dp"
+        android:text="New Titolo"
+        android:id="@+id/textViewTitolo"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewDescrizione"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.507" />
+    <TextView
+        android:layout_width="131dp"
+        android:layout_height="52dp"
+        android:text="New Autore"
+        android:id="@+id/textViewAutore"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewCategoria" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Periodo"
+        android:id="@+id/textViewPeriodo"
+        app:layout_constraintLeft_toRightOf="@+id/textViewAutore"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintRight_toLeftOf="@+id/textViewCultura"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="46dp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewMateriali"
+        app:layout_constraintHorizontal_bias="0.0" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Categoria"
+        android:id="@+id/textViewCategoria"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginBottom="38dp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewLocazione" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Locazione"
+        android:id="@+id/textViewLocazione"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginBottom="65dp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewValore" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Cultura"
+        android:id="@+id/textViewCultura"
+        android:layout_marginRight="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="43dp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewTecniche" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Dominio"
+        android:id="@+id/textViewDominio"
+        android:layout_marginRight="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="68dp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewNomeProprietario" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Materiali"
+        android:id="@+id/textViewMateriali"
+        app:layout_constraintRight_toLeftOf="@+id/textViewTecniche"
+        android:layout_marginRight="8dp"
+        app:layout_constraintLeft_toRightOf="@+id/textViewCategoria"
+        android:layout_marginLeft="8dp"
+        android:layout_marginBottom="34dp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewOrigini"
+        app:layout_constraintHorizontal_bias="0.479" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Tecniche"
+        android:id="@+id/textViewTecniche"
+        android:layout_marginBottom="37dp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewOriginale"
+        android:layout_marginRight="16dp"
+        app:layout_constraintRight_toRightOf="parent" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Condizioni"
+        android:id="@+id/textViewCondizioni"
+        android:layout_marginBottom="69dp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewNomeProprietario"
+        app:layout_constraintRight_toLeftOf="@+id/textViewDominio"
+        android:layout_marginRight="8dp"
+        app:layout_constraintLeft_toRightOf="@+id/textViewValore"
+        android:layout_marginLeft="8dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Valore"
+        android:id="@+id/textViewValore"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginBottom="65dp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewNomeProprietario" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Originale"
+        android:id="@+id/textViewOriginale"
+        android:layout_marginRight="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="64dp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewDominio" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Origini"
+        android:id="@+id/textViewOrigini"
+        app:layout_constraintRight_toLeftOf="@+id/textViewOriginale"
+        android:layout_marginRight="8dp"
+        app:layout_constraintLeft_toRightOf="@+id/textViewLocazione"
+        android:layout_marginLeft="8dp"
+        android:layout_marginBottom="64dp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewCondizioni"
+        app:layout_constraintHorizontal_bias="0.441" />
+    <TextView
+        android:layout_width="144dp"
+        android:layout_height="37dp"
+        android:text="New NomeProprietario"
+        android:id="@+id/textViewNomeProprietario"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="26dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <TextView
+        android:layout_width="358dp"
+        android:layout_height="103dp"
+        android:text="New Descrizione"
+        android:maxLines = "5"
+        android:scrollbars = "vertical"
+        android:id="@+id/textViewDescrizione"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="9dp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewPeriodo"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
