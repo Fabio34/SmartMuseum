@@ -40,21 +40,21 @@ public class ViewData extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.struttura_lista);
 
-        views.add(0,(TextView) findViewById(R.id.textViewTitolo));
-        views.add(1,(TextView) findViewById(R.id.textViewAutore));
-        views.add(2,(TextView) findViewById(R.id.textViewPeriodo));
-        views.add(3,(TextView) findViewById(R.id.textViewCategoria));
-        views.add(4,(TextView) findViewById(R.id.textViewLocazione));
-        views.add(5,(TextView) findViewById(R.id.textViewCultura));
-        views.add(6,(TextView) findViewById(R.id.textViewDominio));
-        views.add(7,(TextView) findViewById(R.id.textViewMateriali));
-        views.add(8,(TextView) findViewById(R.id.textViewTecniche));
-        views.add(9,(TextView) findViewById(R.id.textViewCondizioni));
-        views.add(10,(TextView) findViewById(R.id.textViewValore));
-        views.add(11,(TextView) findViewById(R.id.textViewOriginale));
-        views.add(12,(TextView) findViewById(R.id.textViewOrigini));
-        views.add(13,(TextView) findViewById(R.id.textViewNomeProprietario));
-        views.add(14,(TextView) findViewById(R.id.textViewDescrizione));
+        views.add((TextView) findViewById(R.id.textViewTitolo));
+        views.add((TextView) findViewById(R.id.textViewAutore));
+        views.add((TextView) findViewById(R.id.textViewPeriodo));
+        views.add((TextView) findViewById(R.id.textViewCategoria));
+        views.add((TextView) findViewById(R.id.textViewLocazione));
+        views.add((TextView) findViewById(R.id.textViewCultura));
+        views.add((TextView) findViewById(R.id.textViewDominio));
+        views.add((TextView) findViewById(R.id.textViewMateriali));
+        views.add((TextView) findViewById(R.id.textViewTecniche));
+        views.add((TextView) findViewById(R.id.textViewCondizioni));
+        views.add((TextView) findViewById(R.id.textViewValore));
+        views.add((TextView) findViewById(R.id.textViewOriginale));
+        views.add((TextView) findViewById(R.id.textViewOrigini));
+        views.add((TextView) findViewById(R.id.textViewNomeProprietario));
+        views.add((TextView) findViewById(R.id.textViewDescrizione));
         views.get(14).setMovementMethod(new ScrollingMovementMethod());
 
         final DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
@@ -70,6 +70,7 @@ public class ViewData extends AppCompatActivity {
                         Toast.makeText(ViewData.this,"Connessione internet assente",Toast.LENGTH_SHORT).show();
                     }
                     break;
+                default: break;
             }
             }
         };
@@ -78,6 +79,9 @@ public class ViewData extends AppCompatActivity {
         builder.setMessage("Inserire le cuffie").setPositiveButton("Va bene", dialogClickListener).show();
     }
 
+    /**
+     * Legge il numero del passaporto del reperto ed effettua la richiesta al db
+     */
     private void readReperto(){
         Intent i = getIntent();
         final int NUM_PASSAPORTO = i.getIntExtra("NumPassaporto", 0);
@@ -93,17 +97,21 @@ public class ViewData extends AppCompatActivity {
         return netInfo != null && netInfo.isConnectedOrConnecting();
     }
 
-    private void getData(int NUM_PASSAPORTO) {
+    /**
+     * Richiedo in ingresso il numero del passaporto per effettuare la richiesta al db
+     * @param numPassaporto
+     */
+    private void getData(int numPassaporto) {
 
-        final ProgressDialog LOADING = ProgressDialog.show(this, "Attendi...", "Caricamento...", false, false);
+        final ProgressDialog loading = ProgressDialog.show(this, "Attendi...", "Caricamento...", false, false);
 
-        String url = config.getDATAURL()+NUM_PASSAPORTO;
+        String url = config.getDATAURL()+numPassaporto;
         Log.d("url",url);
 
         StringRequest stringRequest = new StringRequest(url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                LOADING.dismiss();
+                loading.dismiss();
                 showJSON(response);
             }
 
@@ -119,6 +127,10 @@ public class ViewData extends AppCompatActivity {
         requestQueue.add(stringRequest);
     }
 
+    /**
+     * stampo il risultato e avvaloro i campi dell'interfaccia
+     * @param response
+     */
     private void showJSON(String response){
         ArrayList<String> valori = new ArrayList<>();
         String aCapo = "\n";
@@ -131,22 +143,7 @@ public class ViewData extends AppCompatActivity {
             {
                 valori.add(i,collegeData.getString(config.getFieldName(i)));
             }
-            /*titolo = collegeData.getString(Config.TITOLO);
-            autore = collegeData.getString(Config.AUTORE);
-            periodo = collegeData.getString(Config.PERIODO);
-            categoria = collegeData.getString(Config.CATEGORIA);
-            locazione = collegeData.getString(Config.LOCAZIONE);
-            cultura = collegeData.getString(Config.CULTURA);
-            dominio = collegeData.getString(Config.DOMINIO);
-            materiali = collegeData.getString(Config.MATERIALI);
-            tecniche = collegeData.getString(Config.TECNICHE);
-            condizioni = collegeData.getString(Config.CONDIZIONI);
-            valore = collegeData.getString(Config.VALORE);
-            originale = collegeData.getString(Config.ORIGINALE);
-            origini = collegeData.getString(Config.ORIGINI);
-            nomeProprietario = collegeData.getString(Config.NOME_PROPRIETARIO);
-            descrizione = collegeData.getString(Config.DESCRIZIONE);*/
-            //Log.d("Autoreeee",Descrizione);
+
         } catch (JSONException e) {
             Log.d("err","errore nel json");
         }
@@ -155,22 +152,6 @@ public class ViewData extends AppCompatActivity {
         for(int i = 1; i < 15; i++){
             views.get(i).setText(config.getFieldName(i)+":"+aCapo+valori.get(i));
         }
-
-        /*viewTitolo.setText("Titolo:\t"+titolo);
-        viewAutore.setText("Autore:\n"+autore);
-        viewPeriodo.setText("Periodo:\n"+periodo);
-        viewCategoria.setText("Categoria:\n"+categoria);
-        viewLocazione.setText("Locazione:\n"+locazione);
-        viewCultura.setText("Cultura:\n"+cultura);
-        viewDominio.setText("Dominio:\n"+dominio);
-        viewTecniche.setText("Tecniche:\n"+tecniche);
-        viewMateriali.setText("Materiali:\n"+materiali);
-        viewCondizioni.setText("Condizioni:\n"+condizioni);
-        viewValore.setText("Valore:\n"+valore);
-        viewOriginale.setText("Originale:\n"+originale);
-        viewOrigini.setText("Origini:\n"+origini);
-        viewNomeProprietario.setText("NomeProprietario:\n"+nomeProprietario);
-        viewDescrizione.setText("Descrizione:\t"+descrizione);*/
 
     }
 

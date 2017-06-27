@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements  ZXingScannerView
 
     private ZXingScannerView zXingScannerView;
     private boolean flag = false;
-    private static int ACTIVITY_RESULT = 0;
+    private static final int ACTIVITY_RESULT = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements  ZXingScannerView
                     case DialogInterface.BUTTON_NEGATIVE:
                         flag=true;
                         break;
+                    default: break;
                 }
             }
         };
@@ -50,18 +51,27 @@ public class MainActivity extends AppCompatActivity implements  ZXingScannerView
 
     }
 
+    /**
+     * Controlla che la l'app possa accedere alla fotocamera
+     * Se si avvia la scansione.
+     * @param view
+     */
     public void check(View view){
-        final int MY_PERMISSIONS_REQUEST_NEED_CAMERA = 0;
+        final int PERMESSO = 0;
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.CAMERA},
-                    MY_PERMISSIONS_REQUEST_NEED_CAMERA );
+                    PERMESSO );
         }
         else {
             scannerizza(view);
         }
     }
 
+    /**
+     * Metodo per la scansione del codice
+     * @param view
+     */
     public void scannerizza(View view){
         zXingScannerView = new ZXingScannerView(MainActivity.this);
         setContentView(zXingScannerView);
