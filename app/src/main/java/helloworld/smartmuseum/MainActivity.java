@@ -21,7 +21,7 @@ import me.dm7.barcodescanner.zxing.ZXingScannerView;
 public class MainActivity extends AppCompatActivity implements  ZXingScannerView.ResultHandler{
 
     private ZXingScannerView zXingScannerView;
-
+    private boolean flag = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements  ZXingScannerView
                         startActivityForResult(new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS), 0);
                         break;
                     case DialogInterface.BUTTON_NEGATIVE:
+                        flag=true;
                         break;
                 }
             }
@@ -70,7 +71,8 @@ public class MainActivity extends AppCompatActivity implements  ZXingScannerView
 
     protected void onResume(){
         super.onResume();
-        check(zXingScannerView);
+        if(flag)
+            check(zXingScannerView);
     }
 
     public void handleResult (Result result){

@@ -4,14 +4,11 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.media.AudioManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.text.method.ScrollingMovementMethod;
-import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,8 +21,6 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.security.CodeSigner;
 
 /**
  * Created by robby on 25/06/2017.
@@ -73,18 +68,18 @@ public class View_Data extends AppCompatActivity {
         final DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                switch (which) {
-                    case DialogInterface.BUTTON_POSITIVE:
-                        if(isOnline())
-                        {
-                            readReperto();
-                            Toast.makeText(View_Data.this,"Connessione presente",Toast.LENGTH_SHORT).show();
-                        }
-                        else{
-                            Toast.makeText(View_Data.this,"Connessione internet assente",Toast.LENGTH_SHORT).show();
-                        }
-                        break;
-                }
+            switch (which) {
+                case DialogInterface.BUTTON_POSITIVE:
+                    if(isOnline())
+                    {
+                        readReperto();
+                        Toast.makeText(View_Data.this,"Connessione presente",Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        Toast.makeText(View_Data.this,"Connessione internet assente",Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+            }
             }
         };
 
